@@ -1,0 +1,728 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dark: #353536;
+  --dark-bar: #212122;
+  --label: #78787b;
+  --placeholder: #bebec1;
+  --consent: #b4b4b7;
+  --consent-link: #aaaaad;
+  --checkbox-bg: #e3e3e3;
+  --border: #d4d4d4;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Mulish", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 590px;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* ---- background ---- */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-img {
+  position: absolute;
+  width: 107.23%;
+  height: 114.33%;
+  left: -1.87%;
+  top: -3.31%;
+  object-fit: cover;
+  max-width: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.overlay-dark {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.overlay-top {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 0%,
+    transparent 25%
+  );
+}
+
+.overlay-left {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0%, transparent 44%);
+}
+
+.overlay-right {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 35%
+  );
+}
+
+/* ============================================================
+   MOBILE: TOP BAR + BOOK BUTTON  (hidden on desktop)
+   ============================================================ */
+.mobile-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--dark-bar);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.topbar-address {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.topbar-phone {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mobile-book-wrap {
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  right: 15px;
+  z-index: 20;
+}
+
+/* ============================================================
+   BOOK BUTTON (shared styles)
+   ============================================================ */
+.btn-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid #fff;
+  border-radius: 100px;
+  color: #fff;
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+
+.btn-book:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-book-mobile {
+  width: 100%;
+  height: 36px;
+  font-size: 13px;
+}
+
+/* ============================================================
+   DESKTOP HEADER  (hidden on mobile)
+   ============================================================ */
+.site-header {
+  display: none;
+}
+
+/* ============================================================
+   LOGO BLOCK  (shared, positioned differently per breakpoint)
+   ============================================================ */
+.logo-block {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* mobile */
+  top: 96px;
+}
+
+.logo-img {
+  display: block;
+  width: 136px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.logo-tagline {
+  font-family: "Tenor Sans", serif;
+  font-size: 12px;
+  font-style: normal;
+  color: #fff;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.logo-stars {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 3px;
+}
+
+.logo-stars img {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+/* ============================================================
+   HERO CONTENT  (text block)
+   ============================================================ */
+.hero-content {
+  position: absolute;
+  z-index: 20;
+  color: #fff;
+
+  /* mobile: anchored to bottom */
+  left: 15px;
+  right: 15px;
+  bottom: 5%;
+}
+
+.hero-eyebrow {
+  font-family: "Tenor Sans", serif;
+  font-size: 16px;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.hero-title {
+  font-family: "Tenor Sans", serif;
+  font-size: clamp(26px, 8.75vw, 28px);
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.hero-title-last {
+  display: block;
+  font-size: clamp(22px, 7.5vw, 24px);
+}
+
+.hero-desc {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: 290px;
+}
+
+/* ============================================================
+   DESKTOP BREAKPOINT  (≥ 1024px)
+   ============================================================ */
+@media (min-width: 1024px) {
+  /* hide mobile-only elements */
+  .mobile-topbar,
+  .mobile-book-wrap {
+    display: none;
+  }
+
+  /* desktop header */
+  .site-header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 28px 70px;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .header-address {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #fff;
+  }
+
+  .header-phone {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .btn-book-desktop {
+    height: 60px;
+    width: 220px;
+    font-size: 15px;
+  }
+
+  /* desktop logo */
+  .logo-block {
+    top: 18px;
+  }
+
+  .logo-img {
+    width: 222px;
+    height: 62px;
+  }
+
+  .logo-tagline {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .logo-stars img {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* desktop hero content */
+  .hero-content {
+    top: auto;
+    bottom: 170px;
+    left: 70px;
+    right: auto;
+  }
+
+  .hero-eyebrow {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 3.33vw, 64px);
+    line-height: 1;
+    margin-bottom: 0;
+  }
+
+  .hero-title-last {
+    font-size: clamp(48px, 3.33vw, 64px);
+    margin-top: 0;
+  }
+
+  .hero-desc {
+    margin-top: 24px;
+    font-size: 16px;
+    max-width: 331px;
+  }
+}
+
+/* ============================================================
+   BOOKING MODAL
+   ============================================================ */
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s linear 0.45s;
+}
+
+.booking-modal.is-open {
+  visibility: visible;
+  pointer-events: all;
+  transition-delay: 0s;
+}
+
+/* Left: blurred backdrop (desktop only) */
+.modal-backdrop {
+  flex: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.booking-modal.is-open .modal-backdrop {
+  opacity: 1;
+}
+
+/* Right: white form panel */
+.modal-panel {
+  position: relative;
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  width: 100%;
+  padding: 40px 15px 50px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(32px);
+  opacity: 0;
+  transition:
+    transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.42s ease;
+}
+
+.booking-modal.is-open .modal-panel {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.modal-close:hover {
+  opacity: 0.6;
+}
+
+/* Modal heading */
+.modal-heading {
+  margin-bottom: 32px;
+  padding-right: 40px;
+}
+
+.modal-title {
+  font-family: "Tenor Sans", serif;
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+
+.modal-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--dark);
+  max-width: 290px;
+}
+
+/* Form layout */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Field wrapper — floating label pattern */
+.form-field {
+  position: relative;
+}
+
+.field-label {
+  position: absolute;
+  top: -9px;
+  left: 20px;
+  background: #fff;
+  padding: 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--label);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.field-input {
+  display: block;
+  width: 100%;
+  height: 48px;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark);
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field-input::placeholder {
+  color: var(--placeholder);
+}
+
+.field-input:focus {
+  border-color: var(--dark);
+}
+
+.field-textarea {
+  height: 91px;
+  border-radius: 16px;
+  padding: 16px 28px;
+  resize: none;
+  line-height: 1.4;
+}
+
+/* Consent row */
+.form-consent {
+  margin-top: -4px;
+}
+
+.consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.consent-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.consent-box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--checkbox-bg);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  transition: background 0.15s;
+}
+
+.consent-box svg {
+  width: 12px;
+  height: 10px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.consent-checkbox:checked ~ .consent-box svg {
+  opacity: 1;
+
+  path {
+    stroke: var(--dark);
+  }
+}
+
+.consent-text {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--consent);
+}
+
+.consent-link {
+  color: var(--consent-link);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* Submit button */
+.btn-submit {
+  margin-top: 6px;
+  width: 100%;
+  height: 64px;
+  background: var(--dark);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-family: "Tenor Sans", serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: var(--dark-bar);
+}
+
+/* ============================================================
+   BOOKING MODAL — DESKTOP OVERRIDES  (≥ 1024px)
+   ============================================================ */
+
+@media (min-width: 1424px) {
+  .modal-panel {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .booking-modal.is-open {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .modal-backdrop {
+    display: block;
+  }
+
+  /* Desktop: panel slides in from the right */
+  .modal-panel {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+
+  .booking-modal.is-open .modal-panel {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .modal-panel {
+    width: auto;
+    min-width: 480px;
+    padding: 30px 120px;
+    flex-shrink: 0;
+    justify-content: center;
+  }
+
+  .modal-close {
+    top: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .modal-close svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-heading {
+    margin-bottom: 48px;
+    padding-right: 60px;
+  }
+
+  .modal-title {
+    font-size: 64px;
+    margin-bottom: 18px;
+  }
+
+  .modal-subtitle {
+    font-size: 18px;
+    max-width: 540px;
+  }
+
+  .booking-form {
+    gap: 24px;
+  }
+
+  .field-label {
+    font-size: 12px;
+    left: 28px;
+    top: -10px;
+  }
+
+  .field-input {
+    height: 76px;
+    font-size: 18px;
+    padding: 0 40px;
+  }
+
+  .field-textarea {
+    height: 198px;
+    border-radius: 24px;
+    padding: 28px 40px;
+  }
+
+  .consent-text {
+    font-size: 13px;
+  }
+
+  .btn-submit {
+    height: 90px;
+    font-size: 36px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .modal-heading {
+    padding-right: 0;
+  }
+
+  .modal-close {
+    width: 16px;
+    height: 16px;
+  }
+}
