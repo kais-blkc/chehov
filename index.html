@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,8 +28,8 @@
 
     <!-- Mobile: dark top bar (address + phone) -->
     <div class="mobile-topbar">
-      <span class="topbar-address">г. Таганрог,<br>ул. Петровская, 68-А</span>
-      <span class="topbar-phone">8 800 123 456 00</span>
+      <a class="topbar-address" href="https://yandex.ru/maps/?text=г.+Таганрог,+ул.+Петровская,+68-А" target="_blank" rel="noopener">г. Таганрог,<br>ул. Петровская, 68-А</a>
+      <a class="topbar-phone" href="tel:+78001234560">8 800 123 456 00</a>
     </div>
 
     <!-- Mobile: ЗАБРОНИРОВАТЬ button under top bar -->
@@ -39,11 +40,11 @@
     <!-- Desktop header -->
     <header class="site-header">
       <div class="header-meta">
-        <div class="header-address">
+        <a class="header-address" href="https://yandex.ru/maps/?text=г.+Таганрог,+ул.+Петровская,+68-А" target="_blank" rel="noopener">
           <span>г. Таганрог,</span>
           <span>ул. Петровская, 68-А</span>
-        </div>
-        <span class="header-phone">8 800 123 456 00</span>
+        </a>
+        <a class="header-phone" href="tel:+78001234560">8 800 123 456 00</a>
         <button class="btn-book btn-book-desktop" id="openModalDesktop">ЗАБРОНИРОВАТЬ</button>
       </div>
     </header>
@@ -126,14 +127,14 @@
 
         <div class="form-consent">
           <label class="consent-label">
-            <input type="checkbox" class="consent-checkbox" id="consentCheck" checked>
+            <input type="checkbox" class="consent-checkbox" id="consentCheck">
             <span class="consent-box" aria-hidden="true">
               <svg viewBox="0 0 12 10" fill="none">
                 <path d="M1 5L4.5 8.5L11 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
             <span class="consent-text">
-              Я согласен(на) с <a href="#" class="consent-link">Политикой обработки персональных данных</a>
+              Я согласен(на) с <a href="privacy.html" target="_blank" class="consent-link">Политикой обработки персональных данных</a>
             </span>
           </label>
         </div>
@@ -141,6 +142,18 @@
         <button type="submit" class="btn-submit">ЗАБРОНИРОВАТЬ</button>
 
       </form>
+    </div>
+  </div>
+
+  <!-- ===================== COOKIE BANNER ===================== -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Уведомление об использовании файлов cookie" aria-hidden="true">
+    <p class="cookie-text">
+      Мы используем файлы cookie для обеспечения работы сайта и улучшения пользовательского опыта.
+      Подробнее — в <a href="privacy.html" target="_blank" class="cookie-link">Политике обработки персональных данных</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Принять</button>
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Отклонить</button>
     </div>
   </div>
 

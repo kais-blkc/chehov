@@ -118,3 +118,35 @@ const consentCheck = document.getElementById('consentCheck');
 consentCheck && consentCheck.addEventListener('change', function () {
   // The CSS handles visual state via :checked pseudo-class, nothing extra needed
 });
+
+// Cookie banner
+(function () {
+  const banner     = document.getElementById('cookieBanner');
+  const acceptBtn  = document.getElementById('cookieAccept');
+  const declineBtn = document.getElementById('cookieDecline');
+  if (!banner) return;
+
+  function hideBanner() {
+    banner.classList.remove('is-visible');
+    banner.setAttribute('aria-hidden', 'true');
+  }
+
+  if (!localStorage.getItem('cookiesChoice')) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        banner.classList.add('is-visible');
+        banner.setAttribute('aria-hidden', 'false');
+      });
+    });
+  }
+
+  acceptBtn && acceptBtn.addEventListener('click', function () {
+    localStorage.setItem('cookiesChoice', 'accepted');
+    hideBanner();
+  });
+
+  declineBtn && declineBtn.addEventListener('click', function () {
+    localStorage.setItem('cookiesChoice', 'declined');
+    hideBanner();
+  });
+}());
