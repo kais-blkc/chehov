@@ -776,7 +776,12 @@ textarea {
 /* ============================================================
    COOKIE BANNER
    ============================================================ */
+
+/* TODO: раскомментировать когда согласуют с заказчиком */
+/* .cookie-banner { display: none !important; } */
+
 .cookie-banner {
+  display: none !important; /* временно скрыто */
   position: fixed;
   bottom: 0;
   left: 0;
